@@ -1,0 +1,5 @@
+@extends('errors::minimal')
+@extends('adminlte::master')
+@section('title', __('Excesso de Requisições'))
+@section('code', '429')
+@section('message', 'Excesso de requisições')
