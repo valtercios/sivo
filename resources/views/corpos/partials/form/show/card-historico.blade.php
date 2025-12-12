@@ -35,6 +35,9 @@
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title" style="display:inline-block;">Histórico de ações</h4>
+                <a href="{{ route('documentos_recepcao.gerarHistoricoAcoes', $corpo->id) }}" target="_blank"
+                    class="btn btn-sm icon btn-primary mx-1" style="float:right;"><i class="bi bi-printer-fill"></i>
+                    Imprimir histórico</a>
                 <br>
                 <p class="text-subtitle text-muted" style="margin-bottom: -15px; display:inline-block;">Histórico de ações referentes ao corpo</p>
             </div>

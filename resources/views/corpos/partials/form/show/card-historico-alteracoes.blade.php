@@ -7,6 +7,9 @@
                 <p class="text-subtitle text-muted" style="margin-bottom: -15px; display:inline-block;">
                     Histórico de alterações referentes ao corpo
                 </p>
+                <a href="{{ route('documentos_recepcao.gerarHistoricoAlteracoes', $corpo->id) }}" target="_blank" class="btn btn-primary btn-sm" style="float: right; margin-top: 10px;">
+                    <i class="bi bi-printer-fill"></i> Imprimir Histórico
+                </a>
             </div>
             <div class="card-content">
                 <div class="card-body">

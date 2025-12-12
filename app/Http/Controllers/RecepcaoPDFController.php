@@ -76,4 +76,53 @@ class RecepcaoPDFController extends Controller
         $pdf = PDF::loadView('documentos.recepcao.termo-responsabilidade-retidada-corpo-sem-exame.template.template', compact('corpo', 'dados'));
         return $pdf->stream('termo-responsabilidade-retidada-corpo-sem-exame.pdf');
     }
+
+    /**
+     * gerarHistoricoAcoes
+     * Função para gerar o PDF do histórico de ações do corpo com o DOMPDF
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function gerarHistoricoAcoes($id)
+    {
+        $corpo = Corpo::findOrFail($id);
+        
+        // Buscar os audits/históricos do corpo
+        $historico = \App\Models\HistoricoCorpo::where('corpo_id', $id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $pdf = PDF::loadView('documentos.recepcao.historico-acoes.template.template', compact('corpo', 'historico'));
+        return $pdf->stream('historico-acoes-corpo.pdf');
+    }
+
+    /**
+     * gerarHistoricoAlteracoes
+     * Função para gerar o PDF do histórico de alterações do corpo com o DOMPDF
+     *
+     * @param  mixed $id
+     * @return void
+     */
+    public function gerarHistoricoAlteracoes($id)
+    {
+        $corpo = Corpo::findOrFail($id);
+        
+        // Buscar as justificativas/alterações do corpo
+        $justificativa = \App\Models\Justificativa::where('corpo_id', $id)
+            ->orderBy('updated_at', 'desc')
+            ->get();
+
+        // Buscar nomes dos usuários
+        $nome = [];
+        foreach ($justificativa as $item) {
+            if ($item->user_id && !isset($nome[$item->user_id])) {
+                $user = \App\Models\User::find($item->user_id);
+                $nome[$item->user_id] = $user ? $user->name : 'Usuário desconhecido';
+            }
+        }
+
+        $pdf = PDF::loadView('documentos.recepcao.historico-alteracoes.template.template', compact('corpo', 'justificativa', 'nome'));
+        return $pdf->stream('historico-alteracoes-corpo.pdf');
+    }
 }

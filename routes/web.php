@@ -163,6 +163,8 @@ Route::middleware([
     */
 
     Route::get('/documentos/recepcao/pdf/recebimentodecorpo/{id?}',    [App\Http\Controllers\RecepcaoPDFController::class, 'gerarDocumentoRecebimentoDeCorpo'])->name('documentos_recepcao.gerarDocumentoRecebimentoDeCorpo');
+    Route::get('/documentos/recepcao/pdf/historico-acoes/{id?}',    [App\Http\Controllers\RecepcaoPDFController::class, 'gerarHistoricoAcoes'])->name('documentos_recepcao.gerarHistoricoAcoes');
+    Route::get('/documentos/recepcao/pdf/historico-alteracoes/{id?}',    [App\Http\Controllers\RecepcaoPDFController::class, 'gerarHistoricoAlteracoes'])->name('documentos_recepcao.gerarHistoricoAlteracoes');
     Route::get('/documentos/recepcao/pdf/declaracao-retirada-corpo-e-declaracao-obito/{id?}/info-adicional',    [App\Http\Controllers\DocumentosRecepcaoController::class, 'declaracaoRetiradaCorpoInfoAdicional'])->name('documentos_recepcao.gerarDeclaracaoRetiradaDoCorpo.info_adicional');
     Route::post('/documentos/recepcao/pdf/declaracao-retirada-corpo-e-declaracao-obito/{id?}',    [App\Http\Controllers\RecepcaoPDFController::class, 'gerarDeclaracaoRetiradaDoCorpo'])->name('documentos_recepcao.gerarDeclaracaoRetiradaDoCorpo');
     Route::get('/documentos/recepcao/pdf/encaminhamento-iml/{id?}/info-adicional',    [App\Http\Controllers\DocumentosRecepcaoController::class, 'encaminhamentoIMLInfoAdicional'])->name('documentos_recepcao.gerarEncaminhamentoIML.info_adicional');
