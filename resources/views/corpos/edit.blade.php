@@ -60,7 +60,7 @@
                         if (!form.checkValidity()) {
                             event.preventDefault();
                             event.stopPropagation();
-                            flasher.error("Preencha todos os campos obrigatórios!");
+                            toast.error("Preencha todos os campos obrigatórios!");
 
                             $('html, body').animate({
                                 scrollTop: 0
@@ -269,7 +269,7 @@
                                 });
 
                         } else {
-                            flasher.error(response.data.message);
+                            toast.error(response.data.message);
                             $('#loadingNovaFuneraria').hide();
                         }
                     })
@@ -278,7 +278,7 @@
                         $('#loadingNovaFuneraria').hide();
                     });
             } else {
-                flasher.error("É necessário preencher todos os campos.");
+                toast.error("É necessário preencher todos os campos.");
             }
         }
     </script>
@@ -323,7 +323,7 @@
                     event.preventDefault();
                     event.stopPropagation();
                     form.classList.add('was-validated');
-                    flasher.error("Preencha todos os campos obrigatórios!");
+                    toast.error("Preencha todos os campos obrigatórios!");
                     $('html, body').animate({
                         scrollTop: 0
                     }, 200);

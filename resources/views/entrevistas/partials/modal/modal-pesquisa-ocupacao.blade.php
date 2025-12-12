@@ -83,7 +83,7 @@
                 success: function(data) {
                     //foreach data
                     if (data.message) {
-                        flasher.error(data.message);
+                        toastr.error(data.message);
                         return false;
                     }
                     $('#resultado_busca_ocupacao').show();

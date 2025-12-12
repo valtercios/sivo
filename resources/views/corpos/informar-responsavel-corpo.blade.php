@@ -64,7 +64,7 @@
                 if (!form.checkValidity()) {
                 event.preventDefault()
                 event.stopPropagation()
-                flasher.error("Preencha todos os campos obrigatórios!");
+                toast.error("Preencha todos os campos obrigatórios!");
                 $('html, body').animate({
                     scrollTop: 0
                 }, 200);

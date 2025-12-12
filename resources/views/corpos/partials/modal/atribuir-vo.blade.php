@@ -85,7 +85,7 @@
 
 
                      } else {
-                         flasher.error(response.data.message);
+                         toast.error(response.data.message);
                      }
                  })
                  .catch(function(error) {

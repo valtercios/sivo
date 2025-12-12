@@ -200,7 +200,7 @@
 
 
                     } else {
-                        flasher.error(response.data.message);
+                        toast.error(response.data.message);
                     }
                 })
                 .catch(function(error) {
@@ -226,7 +226,7 @@
                         document.getElementById('logarform-ex').style = "display:none;"
                         document.getElementById('confirmarexclusao').style = "display:none;"
                     } else {
-                        flasher.error(response.data.message);
+                        toast.error(response.data.message);
                     }
                 })
                 .catch(function(error) {

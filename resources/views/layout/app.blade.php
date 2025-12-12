@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/extensions/choices.js/public/assets/styles/choices.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.4/css/dataTables.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
 
     <link rel="shortcut icon" href="{{ asset('assets/images/logodegradesemfundo.png') }}" type="image/png">
     <link rel="shortcut icon" href="{{ asset('assets/images/logodegradesemfundo.png') }}" type="image/png">
@@ -44,22 +46,6 @@
     </style>
 
     @yield('css')
-
-    <style>
-        /* Ajuste genérico para reposicionar notificações do php-flasher
-           Usa seletor de classe parcial para cobrir variações do pacote */
-        [class*="flasher"],
-        [class*="Flasher"],
-        [class*="php-flasher"] {
-            position: fixed !important;
-            top: 1rem !important;
-            right: 1rem !important;
-            bottom: auto !important;
-            left: auto !important;
-            z-index: 1060 !important;
-        }
-    </style>
-
 
 </head>
 
@@ -163,6 +149,8 @@
     <script src="{{ asset('assets/extensions/tinymce/tinymce.min.js') }}"></script>
     <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- Inicializar os tooltips --}}
@@ -181,7 +169,7 @@
                         if (!form.checkValidity()) {
                             event.preventDefault()
                             event.stopPropagation()
-                            flasher.error("Preencha todos os campos obrigatórios!");
+                            toastr.error("Preencha todos os campos obrigatórios!");
                             $('select[class*="choices"][required]:not([disabled])').on('change',
                                 function() {
                                     let valorSelect = $(this).val();
